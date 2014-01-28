@@ -1,5 +1,5 @@
 console.log('Hello there, thanks for checking on my program!');
-console.log('To start off, lets say you are an appartment owner.');
+console.log('To start off, lets say you are an appartment owner who wants to track payments... during a zombie apacolypse.');
 
 
 
@@ -36,16 +36,18 @@ function CreateCharacter (name, age){
 	this.nordicKill = function (zombie) {
 		zombie.headless = true;
 		zombie.walker = false;
-	}
+		return name + ': \'Try walking without a head, ' + zombie.name + '!\''
+	};
+
 	this.breakDoor = function (aptName) {
 		aptName.zombieProof = false;
 		return 'Somebody better patch ' + aptName.unitNumber + '\'s door with the \'patch\' function.'
-	}
+	};
 
 	this.patch = function (aptName) {
 		aptName.zombieProof = true;
 		return 'Whew! That was close!'
-	}
+	};
 };
 
 var joe = new CreateCharacter ('Joe', 26);
@@ -61,7 +63,16 @@ function CreateZombie (name){
 	}
 
 	this.patch = function (aptName) {
-		return 'What the heck!?!? Zombies don\'t fix doors!'}
+		return 'What the heck!?!? Zombies don\'t fix doors!'
+	}
+
+	this.bite = function (victim) {
+		victim.walker = true;
+		victim.alive = false;
+		return 'Looks like ' + victim.name + ' is a zed-head now. Too bad. '
+	}
+
 };
+
 
 var zombieFred = new CreateZombie ('Fred');
