@@ -1,6 +1,11 @@
-console.log('Hello there, thanks for checking on my program!');
+console.log('Hello there, thanks for checking out my program!');
 console.log('To start off, lets say you are an appartment owner who wants to track payments... during a zombie apacolypse.');
-
+console.log('1. Create your new apartment unit by using the \'AptUnit(a,b)\' function. Argument \'a\' will be your apartment unit\'s number. Variable \'b\' will be the name of the tenant. I\'ve already created \'blueHouse\' for you to see what all will be logged with your entry.');
+console.log('2. Create information about your tenant using the \'CreateCharacter(name)\'. I have already created \'joe\'.');
+console.log('3. Create information about any pesky neighborhood zombies using the \'CreateZombie(name)\' function. \'zombieFred\' has already been created for you.');
+console.log('Zombies can: bite(victim), breakDoor(unitNumber), & patch(unitNumber)');
+console.log('People can: nordicKill(zombie), breakDoor(unitNumber), & patch(unitNumber)')
+console.log('For your units, you can keep track of payments using: \'rentLate\' & \'paidup\' functions. For example, if the blueHouse unit receives a late payment, you can log it by entering \'blueHouse.rentLate()\'')
 
 
 function AptUnit (unit, tenant){
@@ -51,6 +56,7 @@ function CreateCharacter (name, age){
 };
 
 var joe = new CreateCharacter ('Joe', 26);
+var betty = new CreateCharacter ('Betty White', 67);
 
 function CreateZombie (name){
 	this.name = name;
