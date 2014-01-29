@@ -17,15 +17,28 @@ function AptUnit (unit, tenant){
 	this.zombieProof = true;
 	this.accountStatus = 'Up to date.';
 	this.rentLate = function() {
-		this.accountStatus = 'Rent past due.';
-		this.latePayments = ++this.latePayments;
-		return 'Renter ' + this.renter + ' is past due on Unit ' + this.unitNumber + '.'
+		if (this.latePayments > 2){
+			this.sendEviction = true;
+			this.latePayments = ++this.latePayments;
+			console.warn ('Renter ' + this.renter + ' has been late 3 times already. Kick them to the curb!');
+		} else {	
+			this.accountStatus = 'Rent past due.';
+			this.latePayments = ++this.latePayments;
+			return 'Renter ' + this.renter + ' is past due on Unit ' + this.unitNumber + '.'
+		}
 	};
 	this.paidup = function(){
 		this.accountStatus = 'Up to date.';
 		return 'Renter ' + this.renter + ' is now up to date on Unit ' + this.unitNumber + '.'
 	}
 };
+// If else syntax
+// this.getPhone = function(){
+	// if (this.public == true) {
+	// console.log(this.name + '\'s phone number is ' + this.number + '.\'');
+	// } else {console.log('I\'m sorry, that information is private.\'');
+	// }
+// };
 
 var blueHouse = new AptUnit(103, 'Betty White');
 
@@ -54,6 +67,7 @@ function CreateCharacter (name, age){
 		return 'Whew! That was close!'
 	};
 };
+
 
 var joe = new CreateCharacter ('Joe', 26);
 var betty = new CreateCharacter ('Betty White', 67);
